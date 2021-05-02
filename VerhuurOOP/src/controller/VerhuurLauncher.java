@@ -16,6 +16,7 @@ public class VerhuurLauncher {
 		System.out.println("Dit is het Verhuur testprogramma op 2 mei 2021");
 
 		// Tests voor het maken van Klant en MotorBoot objecten met Verhuur.
+		//Toevoeging om te pushen
 
 		// Stap 1 en 2 Boten
 		// Let wel: Bovenaan ook de bijbehorende import uncommenten.
