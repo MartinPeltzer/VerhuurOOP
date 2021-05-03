@@ -3,7 +3,7 @@ package model;
 public class Klant {
 	private String naam;
 	private String emailadres;
-	private boolean vaarVaardig;
+	private boolean heeftHond;
 
 	//all arg constructor
 	public Klant() {
@@ -14,13 +14,13 @@ public class Klant {
 	public Klant(String naam) {
 		this(naam, "onbekend", false);
 	}
-	public Klant(String naam, String emailadres, boolean vaarVaardig) {
+	public Klant(String naam, String emailadres, boolean heeftHond) {
 		this.naam = naam;
 		this.emailadres = emailadres;
-		this.vaarVaardig = vaarVaardig;
+		this.heeftHond = heeftHond;
 	}
 
-	public boolean isVaarVaardig() { return vaarVaardig; }
+	public boolean isHeeftHond() { return heeftHond; } //isVaarVaardig()-->isHeeftHond()
 
 
 	@Override

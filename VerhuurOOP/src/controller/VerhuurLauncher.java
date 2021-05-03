@@ -9,14 +9,14 @@ import java.util.Scanner;
 
  import database.DBaccess;
  import database.KlantDAO;
- import model.Boot;
+ import model.Vakantiewoning;
  import model.Klant;
- import model.MotorBoot;
+ import model.Huisje;
  import model.Verhuur;
- import model.ZeilBoot;
+ import model.Appartement;
 
 public class VerhuurLauncher {
-	final static int AANTAL_VALKEN = 5;  //nodig bij stap 5b (zie onder)
+	final static int AANTAL_SCHAKELBUNGALOWS = 5;  //nodig bij stap 5b (zie onder)
 
 	public static void main(String[] args) {
 		//Hier een openingszin
@@ -27,57 +27,57 @@ public class VerhuurLauncher {
 
 		// Stap 1 en 2 Boten
 		// Let wel: Bovenaan ook de bijbehorende import uncommenten.
-		System.out.println("-------- Stap 1 en 2 Boten --------");
-		System.out.println("Motorboten:");
-		Boot engel = new MotorBoot("De Engel", 6, 18);
-		System.out.println(engel);
-		Boot susy = new MotorBoot("Suzy Q", 11, 21);
-		System.out.println(susy);
+		System.out.println("-------- Stap 1 en 2 Vakantiewoningen --------");
+		System.out.println("Huisjes:");
+		Vakantiewoning hattem = new Huisje("Hattem", 6, 18);
+		System.out.println(hattem);
+		Vakantiewoning garmisch = new Huisje("Garmisch", 11, 21);
+		System.out.println(garmisch);
 		System.out.println();
 		//Testen ZeilBoot
-		System.out.println("Zeilboten:");
-		Boot iselin = new ZeilBoot("Iselin", 11);
-		System.out.println(iselin);
+		System.out.println("Appartementen:");
+		Vakantiewoning london = new Appartement("London", 11);
+		System.out.println(london);
 		System.out.println();
 
 		// Stap 3 Klanten
 		System.out.println("-------- Stap 3 Klanten --------");
-		Klant jan = new Klant("Jan");
+		Klant jan = new Klant("Tessa");
 		System.out.println(jan);
-		Klant tarik = new Klant("Tarik", "tarik@gmail.com", true);
+		Klant tarik = new Klant("Esther", "estherdb@gmail.com", true);
 		System.out.println(tarik);
 		System.out.println();
 
 		// Stap 4 Verhuur
 		System.out.println("-------- Stap 4 Verhuur --------");
 		Verhuur eersteVerhuur = new Verhuur(jan, LocalDate.of(2019, 12, 6), 5);
-		eersteVerhuur.voegBootToe(engel);
+		eersteVerhuur.voegVakantiewoningToe(hattem);
 		System.out.println(eersteVerhuur);
 		Verhuur tweedeVerhuur = new Verhuur(tarik, LocalDate.of(2019, 12, 5), 3);
-		tweedeVerhuur.voegBootToe(susy);
+		tweedeVerhuur.voegVakantiewoningToe(garmisch);
 		System.out.println(tweedeVerhuur);
 		System.out.println();
 
 		// Stap 5a Verhuur van meerdere boten aan een Klant.
 		// Klant en array van zeilboten om te verhuren klaarzetten
-		System.out.println("-------- Stap 5 Verhuur nul  boten --------");
+		System.out.println("-------- Stap 5 Verhuur nul vakantiewoningen --------");
 		Verhuur mislukteVerhuur = new Verhuur(jan, LocalDate.of(2019, 12, 3), 2);
-		mislukteVerhuur.voegBootToe(susy);
+		mislukteVerhuur.voegVakantiewoningToe(garmisch);
 		System.out.println(mislukteVerhuur);
-		System.out.println("-------- Stap 5b Verhuur meerdere boten --------");
-		Klant valkHuurder = new Klant("Van der Valk");
-		ZeilBoot[] valken = new ZeilBoot[AANTAL_VALKEN];
-		for (int valkNummer = 0; valkNummer < AANTAL_VALKEN; valkNummer++) {
-			valken[valkNummer] = new ZeilBoot("valk" + (valkNummer + 1), 6);
+		System.out.println("-------- Stap 5b Verhuur meerdere vakantiewoningen --------");
+		Klant schakelbungalowHuurder = new Klant("Kluin");
+		Appartement[] schakelbungalows = new Appartement[AANTAL_SCHAKELBUNGALOWS];
+		for (int schakelbungalowNummer = 0; schakelbungalowNummer < AANTAL_SCHAKELBUNGALOWS; schakelbungalowNummer++) {
+			schakelbungalows[schakelbungalowNummer] = new Appartement("schakelbungalow" + (schakelbungalowNummer + 1), 6);
 		}
-		Verhuur valkVerhuur = new Verhuur(valkHuurder, LocalDate.of(2019,12,10), 7);;
+		Verhuur schakelbungalowVerhuur = new Verhuur(schakelbungalowHuurder, LocalDate.of(2019,12,10), 7);;
 
-		for (int valkNummer = 0; valkNummer < AANTAL_VALKEN; valkNummer++) {
-			valkVerhuur.voegBootToe(valken[valkNummer]);
+		for (int schakelbungalowNummer = 0; schakelbungalowNummer < AANTAL_SCHAKELBUNGALOWS; schakelbungalowNummer++) {
+			schakelbungalowVerhuur.voegVakantiewoningToe(schakelbungalows[schakelbungalowNummer]);
 		}
-		valkVerhuur.voegBootToe(susy);
-		valkVerhuur.voegBootToe(engel);
-		System.out.println(valkVerhuur);
+		schakelbungalowVerhuur.voegVakantiewoningToe(garmisch);
+		schakelbungalowVerhuur.voegVakantiewoningToe(hattem);
+		System.out.println(schakelbungalowVerhuur);
 
 
 		// Stap 6: Leest de klanten uit het bestand Klanten.csv in de folder Resources
@@ -106,16 +106,16 @@ public class VerhuurLauncher {
 		//In src-->database-->KlantDAO maken
 
 		//Code om de klanten uit het Klanten.csv bestand op te slaan in een SQL database
-		System.out.println("-------- Stap 7 Maak een connectie met de database Boten en sla klanten op --------");
-		DBaccess dBaccess = new DBaccess("boten", "userBoten", "userBotenPW");
-		dBaccess.openConnection();
-		KlantDAO kdao = new KlantDAO(dBaccess);
-		for (Klant klant : klantenLijst) {
-			kdao.storeKlant(klant);
-		}
-		kdao.storeKlant(jan);
+		//System.out.println("-------- Stap 7 Maak een connectie met de database Boten en sla klanten op --------");
+		//DBaccess dBaccess = new DBaccess("boten", "userBoten", "userBotenPW");
+		//dBaccess.openConnection();
+		//KlantDAO kdao = new KlantDAO(dBaccess);
+		//for (Klant klant : klantenLijst) {
+		//	kdao.storeKlant(klant);
+		//}
+		//kdao.storeKlant(jan);
 
-		dBaccess.closeConnection();
+		//dBaccess.closeConnection();
 	}
 
 

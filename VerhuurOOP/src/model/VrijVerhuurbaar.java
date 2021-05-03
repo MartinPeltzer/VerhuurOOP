@@ -2,5 +2,5 @@ package model;
 
 public interface VrijVerhuurbaar {
 
-    boolean isVaarbewijsPlichtig();
+    boolean HondToegestaan();
 }
