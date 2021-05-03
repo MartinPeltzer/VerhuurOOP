@@ -13,7 +13,7 @@ public class VerhuurLauncher {
 
 	public static void main(String[] args) {
 		//Hier een openingszin
-		System.out.println("Dit is het Verhuur testprogramma op 2 mei 2021");
+		System.out.println("Dit is het Verhuur oefenprogramma in java met OOP op 3 mei 2021");
 
 		// Tests voor het maken van Klant en MotorBoot objecten met Verhuur.
 		//Toevoeging om te pushen
@@ -34,12 +34,12 @@ public class VerhuurLauncher {
 		System.out.println();
 
 		// Stap 3 Klanten
-//		System.out.println("-------- Stap 3 Klanten --------");
-//		Klant jan = new Klant("Jan");
-//		System.out.println(jan);
-//		Klant tarik = new Klant("Tarik", "tarik@gmail.com", true);
-//		System.out.println(tarik);
-//		System.out.println();
+		System.out.println("-------- Stap 3 Klanten --------");
+		Klant jan = new Klant("Jan");
+		System.out.println(jan);
+		Klant tarik = new Klant("Tarik", "tarik@gmail.com", true);
+		System.out.println(tarik);
+		System.out.println();
 
 		// Stap 4 Verhuur
 //		System.out.println("-------- Stap 4 Verhuur --------");

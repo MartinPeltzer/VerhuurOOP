@@ -34,5 +34,6 @@ public abstract class Boot implements VrijVerhuurbaar {
     @Override
     public String toString() {
         return String.format("[Boot: %d met naam: %s]", id, naam); //kijken of dit wel werkt
+        //Je ziet hier dus idd die dat die %d en %s zo werken.
     }
 }
