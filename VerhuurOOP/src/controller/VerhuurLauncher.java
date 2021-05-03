@@ -7,8 +7,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
- //import database.DBaccess;
- //import database.KlantDAO;
+ import database.DBaccess;
+ import database.KlantDAO;
  import model.Boot;
  import model.Klant;
  import model.MotorBoot;
@@ -103,10 +103,20 @@ public class VerhuurLauncher {
 		// Nog toevoegen: het opslaan van klanten in de database
 		// Test eerst de connectie door hieronder de code te uncommenten.
 		// Let op: Ook de import bovenaan uncommenten.
-//		DBaccess dBaccess = new DBaccess("boten", "userBoten", "userBotenPW");
-//		dBaccess.openConnection();
+		//In src-->database-->KlantDAO maken
 
-//		dBaccess.closeConnection();
+		//Code om de klanten uit het Klanten.csv bestand op te slaan in een SQL database
+		System.out.println("-------- Stap 7 Maak een connectie met de database Boten en sla klanten op --------");
+		DBaccess dBaccess = new DBaccess("boten", "userBoten", "userBotenPW");
+		dBaccess.openConnection();
+		KlantDAO kdao = new KlantDAO(dBaccess);
+		for (Klant klant : klantenLijst) {
+			kdao.storeKlant(klant);
+		}
+		kdao.storeKlant(jan);
+
+		dBaccess.closeConnection();
 	}
+
 
 }
