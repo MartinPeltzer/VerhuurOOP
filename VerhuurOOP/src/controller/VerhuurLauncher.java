@@ -1,18 +1,18 @@
 package controller;
 
-// import database.KlantDAO;
-// import model.Boot;
-// import model.Klant;
-// import model.MotorBoot;
-// import model.Verhuur;
-// import model.Zeilboot;
+ //import database.KlantDAO;
+ import model.Boot;
+ import model.Klant;
+ import model.MotorBoot;
+ //import model.Verhuur;
+ import model.ZeilBoot;
 
 
 public class VerhuurLauncher {
 	final static int AANTAL_VALKEN = 5;
 
 	public static void main(String[] args) {
-		//	Hier mijn naam
+		//Hier een openingszin
 		System.out.println("Dit is het Verhuur testprogramma op 2 mei 2021");
 
 		// Tests voor het maken van Klant en MotorBoot objecten met Verhuur.
@@ -20,12 +20,18 @@ public class VerhuurLauncher {
 
 		// Stap 1 en 2 Boten
 		// Let wel: Bovenaan ook de bijbehorende import uncommenten.
-//		System.out.println("-------- Stap 1 en 2 Boten --------");
-//		Boot engel = new MotorBoot("De Engel", 6, 18);
-//		System.out.println(engel);
-//		Boot susy = new MotorBoot("Suzy Q", 11, 21);
-//		System.out.println(susy);
-//		System.out.println();
+		System.out.println("-------- Stap 1 en 2 Boten --------");
+		System.out.println("Motorboten:");
+		Boot engel = new MotorBoot("De Engel", 6, 18);
+		System.out.println(engel);
+		Boot susy = new MotorBoot("Suzy Q", 11, 21);
+		System.out.println(susy);
+		System.out.println();
+		//Testen ZeilBoot
+		System.out.println("Zeilboten:");
+		Boot iselin = new ZeilBoot("Iselin", 11);
+		System.out.println(iselin);
+		System.out.println();
 
 		// Stap 3 Klanten
 //		System.out.println("-------- Stap 3 Klanten --------");

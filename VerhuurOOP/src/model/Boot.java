@@ -25,6 +25,7 @@ public abstract class Boot implements VrijVerhuurbaar {
         return lengte;
     }
 
+    //Mogelijk kan ik deze later weghalen. Kijken hoe dat uiteindelijk met lengte invoeren gaat?
     public void setLengte(int lengte) {
         this.lengte = lengte;
     }
@@ -32,6 +33,6 @@ public abstract class Boot implements VrijVerhuurbaar {
     //DMV toString informatie die getoond gaat worden standaardiseren:
     @Override
     public String toString() {
-        return String.format("[Boot: %d met naam: %s", id, naam); //kijken of dit wel werkt
+        return String.format("[Boot: %d met naam: %s]", id, naam); //kijken of dit wel werkt
     }
 }
