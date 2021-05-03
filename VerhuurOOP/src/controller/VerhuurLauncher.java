@@ -1,6 +1,5 @@
 package controller;
 
-//import database.KlantDAO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,8 +7,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import database.DBaccess;
-//import database.KlantDAO;
+ //import database.DBaccess;
+ //import database.KlantDAO;
  import model.Boot;
  import model.Klant;
  import model.MotorBoot;
@@ -81,8 +80,23 @@ public class VerhuurLauncher {
 		System.out.println(valkVerhuur);
 
 
-		// Stap 6: Lees de klanten uit het bestand Klanten.csv in de folder Resources
+		// Stap 6: Leest de klanten uit het bestand Klanten.csv in de folder Resources
 		// Print de lijst naar de console.
+		//Dit doe je dus hier:
+		System.out.println("-------- Stap 6 Lees de klanten uit het bestand Klanten.csv in de folder Resources--------");
+		ArrayList<Klant> klantenLijst = new ArrayList<>();
+		try {
+			File klantenBestand = new File("VerhuurOOP/resources/Klanten.csv"); //"verhuurOOP" moest ervoor idd.
+			Scanner leesFile = new Scanner(klantenBestand);
+			while (leesFile.hasNextLine()) {
+				String[] klantSplit = leesFile.nextLine().split(",");
+				Klant nieuweKlant = new Klant(klantSplit[0], klantSplit[1], false);
+				klantenLijst.add(nieuweKlant);
+			}
+		} catch (FileNotFoundException fout) {
+			System.out.println("Bestand niet gevonden.");
+		}
+		System.out.println(klantenLijst);
 
 
 		// Stap 7: Maak een connectie met de database Boten en sla klanten op.
