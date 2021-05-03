@@ -16,12 +16,8 @@ import database.DBaccess;
  import model.Verhuur;
  import model.ZeilBoot;
 
- //Extra imports
-
-
-
 public class VerhuurLauncher {
-	final static int AANTAL_VALKEN = 5;
+	final static int AANTAL_VALKEN = 5;  //nodig bij stap 5b (zie onder)
 
 	public static void main(String[] args) {
 		//Hier een openingszin
@@ -63,26 +59,26 @@ public class VerhuurLauncher {
 		System.out.println(tweedeVerhuur);
 		System.out.println();
 
-		// Stap 5 Verhuur van meerdere boten aan een Klant.
+		// Stap 5a Verhuur van meerdere boten aan een Klant.
 		// Klant en array van zeilboten om te verhuren klaarzetten
-//		System.out.println("-------- Stap 5 Verhuur nul  boten --------");
-//		Verhuur mislukteVerhuur = new Verhuur(jan, LocalDate.of(2019, 12, 3), 2);
-//		mislukteVerhuur.voegBootToe(susy);
-//		System.out.println(mislukteVerhuur);
-//		System.out.println("-------- Stap 5 Verhuur meerdere boten --------");
-//		Klant valkHuurder = new Klant("Van der Valk");
-//		ZeilBoot[] valken = new ZeilBoot[AANTAL_VALKEN];
-//		for (int valkNummer = 0; valkNummer < AANTAL_VALKEN; valkNummer++) {
-//			valken[valkNummer] = new ZeilBoot("valk" + (valkNummer + 1), 6);
-//		}
-//		Verhuur valkVerhuur = new Verhuur(valkHuurder, LocalDate.of(2019,12,10), 7);;
-//
-//		for (int valkNummer = 0; valkNummer < AANTAL_VALKEN; valkNummer++) {
-//			valkVerhuur.voegBootToe(valken[valkNummer]);
-//		}
-//		valkVerhuur.voegBootToe(susy);
-//		valkVerhuur.voegBootToe(engel);
-//		System.out.println(valkVerhuur);
+		System.out.println("-------- Stap 5 Verhuur nul  boten --------");
+		Verhuur mislukteVerhuur = new Verhuur(jan, LocalDate.of(2019, 12, 3), 2);
+		mislukteVerhuur.voegBootToe(susy);
+		System.out.println(mislukteVerhuur);
+		System.out.println("-------- Stap 5b Verhuur meerdere boten --------");
+		Klant valkHuurder = new Klant("Van der Valk");
+		ZeilBoot[] valken = new ZeilBoot[AANTAL_VALKEN];
+		for (int valkNummer = 0; valkNummer < AANTAL_VALKEN; valkNummer++) {
+			valken[valkNummer] = new ZeilBoot("valk" + (valkNummer + 1), 6);
+		}
+		Verhuur valkVerhuur = new Verhuur(valkHuurder, LocalDate.of(2019,12,10), 7);;
+
+		for (int valkNummer = 0; valkNummer < AANTAL_VALKEN; valkNummer++) {
+			valkVerhuur.voegBootToe(valken[valkNummer]);
+		}
+		valkVerhuur.voegBootToe(susy);
+		valkVerhuur.voegBootToe(engel);
+		System.out.println(valkVerhuur);
 
 
 		// Stap 6: Lees de klanten uit het bestand Klanten.csv in de folder Resources
