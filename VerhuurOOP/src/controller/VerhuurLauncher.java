@@ -1,11 +1,23 @@
 package controller;
 
- //import database.KlantDAO;
+//import database.KlantDAO;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import database.DBaccess;
+//import database.KlantDAO;
  import model.Boot;
  import model.Klant;
  import model.MotorBoot;
- //import model.Verhuur;
+ import model.Verhuur;
  import model.ZeilBoot;
+
+ //Extra imports
+
 
 
 public class VerhuurLauncher {
@@ -42,14 +54,14 @@ public class VerhuurLauncher {
 		System.out.println();
 
 		// Stap 4 Verhuur
-//		System.out.println("-------- Stap 4 Verhuur --------");
-//		Verhuur eersteVerhuur = new Verhuur(jan, LocalDate.of(2019, 12, 6), 5);
-//		eersteVerhuur.voegBootToe(engel);
-//		System.out.println(eersteVerhuur);
-//		Verhuur tweedeVerhuur = new Verhuur(tarik, LocalDate.of(2019, 12, 5), 3);
-//		tweedeVerhuur.voegBootToe(susy);
-//		System.out.println(tweedeVerhuur);
-//		System.out.println();
+		System.out.println("-------- Stap 4 Verhuur --------");
+		Verhuur eersteVerhuur = new Verhuur(jan, LocalDate.of(2019, 12, 6), 5);
+		eersteVerhuur.voegBootToe(engel);
+		System.out.println(eersteVerhuur);
+		Verhuur tweedeVerhuur = new Verhuur(tarik, LocalDate.of(2019, 12, 5), 3);
+		tweedeVerhuur.voegBootToe(susy);
+		System.out.println(tweedeVerhuur);
+		System.out.println();
 
 		// Stap 5 Verhuur van meerdere boten aan een Klant.
 		// Klant en array van zeilboten om te verhuren klaarzetten
